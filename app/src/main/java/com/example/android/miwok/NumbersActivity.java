@@ -2,9 +2,9 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ListView;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
@@ -27,14 +27,19 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
-        LinearLayout rootView = findViewById(R.id.rootView);
+        //using ListView with ArrayAdapter for recycling views:
+        //here we used android due to use simple_list_item_1 because it's a predefined
+        //words is the ArrayList
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
 
-        int index;
-        for(index=0; index<words.size(); index++)
-        {
-            TextView wordView = new TextView(this);
-            rootView.addView(wordView);
-            wordView.setText(words.get(index));
-        }
+        //list is the id name of the ListView in the XML file
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        listView.setAdapter(itemsAdapter);
     }
 }
+
+/**
+ * ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+ * ListView listView = new ListView(R.id.list
+ * listView.setAdapter(itemsAdapter);*/
