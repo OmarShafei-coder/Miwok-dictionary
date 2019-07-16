@@ -8,13 +8,16 @@ import android.widget.ImageView;
  */
 public class Word {
 
-    /**The image for the word*/
-    private int mImageResourceId;
     /** Default translation for the word */
     private String mDefaultTranslation;
 
     /** Miwok translation for the word */
     private String mMiwokTranslation;
+
+    private static final int NO_IMAGE = -1;
+
+    /**The image for the word*/
+    private int mImageResourceId = NO_IMAGE;
 
     /**
      * Create a new Word object.
@@ -62,4 +65,10 @@ public class Word {
         return mMiwokTranslation;
     }
 
+    /**
+     * if there's an image for this word or not
+     */
+    public boolean hasImage(){
+        return mImageResourceId != NO_IMAGE;
+    }
 }
