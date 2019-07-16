@@ -36,7 +36,7 @@ public class PhrasesActivity extends AppCompatActivity {
         words.add(new Word("Come here.\n" +
                 "\n", "әnni'nem"));
 
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_phrases);
 
         //list is the id name of the ListView in the XML file
         ListView listView = findViewById(R.id.list);
