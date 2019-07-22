@@ -1,5 +1,6 @@
 package com.example.android.miwok;
 
+import android.media.AudioFocusRequest;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -73,6 +74,11 @@ public class PhrasesActivity extends AppCompatActivity {
 
                 // Start the audio file
                 mMediaPlayer.start();
+
+                /**
+                 * Setup a listener on the media player, so that we can stop and release
+                 * the media player once the sound has finished playing
+                 */
                 mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });

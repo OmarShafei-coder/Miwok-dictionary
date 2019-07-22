@@ -62,6 +62,12 @@ public class ColorsActivity extends AppCompatActivity {
 
                 // Start the audio file
                 mMediaPlayer.start();
+
+                /**
+                 * Setup a listener on the media player, so that we can stop and release
+                 * the media player once the sound has finished playing
+                 */
+                mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
     }
